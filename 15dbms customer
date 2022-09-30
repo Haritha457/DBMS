@@ -1,0 +1,13 @@
+CREATE DEFINER=`root`@`localhost` FUNCTION `ma`(income int) RETURNS varchar(20) CHARSET utf8mb4
+    DETERMINISTIC
+BEGIN
+    declare performance varchar(16);
+    IF income <=4000 then
+    set performance ='low';
+    elseif income <=5000 then
+    set performance = 'avg';
+    else
+    set performance = 'high';
+    end if;
+RETURN (performance);
+END
